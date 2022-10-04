@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+/**
+ * Objective of the component is to organize all the hello world app component
+ */
+import Welcome from "./Welcome"
+import Weather from "./Weather"
+import Population from "./Population"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    return (
+        <>
+            <Welcome></Welcome>
+            <Weather></Weather>
+            <Population></Population>
+        </>
+    )
 }
 
 export default App;
