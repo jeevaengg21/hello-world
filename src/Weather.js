@@ -23,8 +23,8 @@ const Weather = () => {
      * useEffect with empty dependency can be considered like PostConstruct
      */
     useEffect(() => {
-        console.log("UseEffect loaded")
-        measureTemparature();
+        console.log("Weather : UseEffect loaded")
+        //measureTemparature();
     }, []);
 
 

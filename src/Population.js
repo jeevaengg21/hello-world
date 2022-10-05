@@ -1,8 +1,23 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-const Population = () => {
+/**Function component */
+const Population = (props) => {
     let total = 0;
-    const [counter, updateCounter] = useState(0);
+
+    const [counter, setCounter] = useState(0);
+    const [br, setBr] = useState(0)
+
+    let { initCount, birthRate } = props;
+    console.log("init props extraction", props)
+
+    useEffect(() => {
+        console.log("Population component on ready", props)
+        setCounter(initCount)
+    }, [])
+
+    useEffect(() => {
+        setBr(birthRate)
+    }, [birthRate])
 
     const calculateOxygenRequirement = (_headcount) => {
         console.log("Oxygen tank ", _headcount * 4)
@@ -16,7 +31,7 @@ const Population = () => {
         // console.log("current counter value ::" + counter)
         // console.log("total :: " + total)
 
-        updateCounter(currentStateValue => {
+        setCounter(currentStateValue => {
             const newHeadCount = currentStateValue + 1
             calculateOxygenRequirement(newHeadCount)
             return newHeadCount
@@ -28,12 +43,13 @@ const Population = () => {
         /** code style - 2
          * ** Good practice
          */
-        updateCounter(currentStateValue => currentStateValue - 1)
+        setCounter(currentStateValue => currentStateValue - 1)
 
     }
 
     return (<>
         <h3>Population</h3>
+        <p>Birth rate: {br}</p>
         <div>
             <label>Total : {counter}</label>
             <button onClick={registerBirth} >Register birth</button>
