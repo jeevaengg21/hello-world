@@ -7,13 +7,13 @@ const Population = (props) => {
     const [counter, setCounter] = useState(0);
     const [br, setBr] = useState(0)
 
-    let { initCount, birthRate } = props;
+    let { initCount, birthRate, onBirth } = props;
     console.log("init props extraction", props)
 
     useEffect(() => {
         console.log("Population component on ready", props)
         setCounter(initCount)
-    }, [])
+    }, [initCount])
 
     useEffect(() => {
         setBr(birthRate)
@@ -34,6 +34,7 @@ const Population = (props) => {
         setCounter(currentStateValue => {
             const newHeadCount = currentStateValue + 1
             calculateOxygenRequirement(newHeadCount)
+            onBirth(new Date())
             return newHeadCount
         })
 
