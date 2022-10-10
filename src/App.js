@@ -6,6 +6,7 @@ import Welcome from "./Welcome"
 import Weather from "./Weather"
 import Population from "./Population"
 import MyAccount from "./bank_app/MyAccount"
+import Todo from "./todo_app/Todo"
 
 /** Function component */
 const App = () => {
@@ -32,12 +33,13 @@ const App = () => {
 
     return (
         <>
-            <label>World Birth Rate</label>
+            {/* <label>World Birth Rate</label>
             <input type={"text"} value={averageBirthRate} onChange={onBirthRateTextBoxChange}></input>
             <Welcome></Welcome>
             <Weather></Weather>
             <Population initCount={initialPopulation} birthRate={averageBirthRate} onBirth={issueBirthCertificate} ></Population>
-            <MyAccount></MyAccount>
+            <MyAccount></MyAccount> */}
+            <Todo></Todo>
         </>
     )
 }
