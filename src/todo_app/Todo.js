@@ -25,11 +25,11 @@ const Todo = () => {
 
     return (<>
         <TodoForm onAdd={onAddTodo}></TodoForm>
-        <ul>
+        <div>
             {todoItems.map((itemText, itemIndex) => {
-                return <TodoItem itemName={itemText} itemIndex={itemIndex} onDone={onDone}></TodoItem>
+                return <TodoItem key={itemIndex} itemName={itemText} itemIndex={itemIndex} onDone={onDone}></TodoItem>
             })}
-        </ul>
+        </div>
     </>)
 
 }

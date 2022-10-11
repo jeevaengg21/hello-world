@@ -3,10 +3,10 @@ const TodoItem = ({ itemName, itemIndex, onDone }) => {
         onDone(itemIndex)
     }
     return (
-        <li>
+        <div>
             <label>{itemName}</label>
             <button onClick={onClickDone} >Done</button>
-        </li>
+        </div>
     )
 }
 

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Todo from "../todo_app/Todo";
 import ClosingBalance from "./ClosingBalance"
 import MiniStatementEntry from "./MiniStatementEntry";
 import TransactionForm from "./TransactionForm"
@@ -48,6 +49,9 @@ const MyAccount = () => {
             {
                 buildMiniStatement()
             }
+
+            <h3>Transaction todo list</h3>
+            <Todo></Todo>
         </>
     )
 }
