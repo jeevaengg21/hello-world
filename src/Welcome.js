@@ -4,9 +4,16 @@
  *
  */
 
+import Navigation from "./Navigation"
+
 
 const Welcome = () => {
-    return (<p>Hi, welcome to the Hello World!!!</p>)
+    return (
+        <>
+            <Navigation></Navigation>
+            <p>Hi, welcome to the Hello World!!!</p>
+        </>
+    )
 }
 
 export default Welcome

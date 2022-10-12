@@ -8,12 +8,20 @@ import Population from "./Population"
 import MyAccount from "./bank_app/MyAccount"
 import Todo from "./todo_app/Todo"
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import Login from "./Login"
+import Sample from "./class_component/Sample"
 
 /** Function component */
 const App = () => {
     const [initialPopulation, setInitialPopulation] = useState(0);
     /** APP component will determine the birth rate only once */
     const [averageBirthRate, setAverageBirthRate] = useState(0);
+    const [isLoggedIn, setLoggedIn] = useState(false)
+
+    const onLoginSuccess = () => {
+        console.log("Login successfull")
+        setLoggedIn(true)
+    }
 
     useEffect(() => {
         console.log("App is ready")
@@ -31,45 +39,28 @@ const App = () => {
         console.log("Intiate birth certification creation process", birthDateTime)
     }
 
+    // const CheckLoggedIn = (children) => {
+
+    //     return isLoggedIn ? children : <Login onLoginSuccess={onLoginSuccess}></Login>
+    // }
+
+
+
 
     return (
         <BrowserRouter>
-            <ul>
-                <li>
-                    <Link to="/" >Home</Link>
-                </li>
-                <li>
-                    <Link to="/weather/report" >Weather</Link>
-                </li>
-                <li>
-                    <Link to="/praba" >My home</Link>
-                </li>
-                <li>
-                    <Link to="/bank">Bank</Link>
-                </li>
-                <li>
-                    <Link to="/todo/list">Todo</Link>
-                </li>
-                <li>
-                    <Link to="/population">Population</Link>
-                </li>
-            </ul>
-            {/* <label>World Birth Rate</label>
-            <input type={"text"} value={averageBirthRate} onChange={onBirthRateTextBoxChange}></input>
-            <Welcome></Welcome>
-            <Weather></Weather>
-            <Population initCount={initialPopulation} birthRate={averageBirthRate} onBirth={issueBirthCertificate} ></Population>
-            <MyAccount></MyAccount> 
-            <Todo></Todo>
-            */}
+            <Sample></Sample>
             <Routes>
-                <Route path="/" element={<Welcome></Welcome>}></Route>
+                <Route path="/login" element={<Login onLoginSuccess={onLoginSuccess} ></Login>}></Route>
+                <Route path="/" element={isLoggedIn &&
+                    <Welcome />
+                }></Route>
                 <Route path="/weather/report" element={<Weather></Weather>}></Route>
-                <Route path="/praba" element={<Welcome></Welcome>}></Route>
-                <Route path="/bank" element={<>
-                    <MyAccount></MyAccount>
-                    <Todo></Todo>
-                </>}></Route>
+                <Route path="/bank" element={
+                    <>
+                        <MyAccount></MyAccount>
+                        <Todo></Todo>
+                    </>}></Route>
                 <Route path="/todo/list" element={<Todo></Todo>}></Route>
                 <Route path="/population" element={<Population></Population>}></Route>
             </Routes>
