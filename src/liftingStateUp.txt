@@ -1,0 +1,13 @@
+BankApp %% 90,000
+- DepositInterestRates ****
+    - Header
+    - Menubar
+    - Display ^
+        - Fixed deposit ^                      
+            - FixedDepositCreate ^                
+                - Account Details *
+                - Customer geneder / age * 10,000
+            - FixedDepositList ^
+                - Account Details *
+        - RD 
+            - RDCreate
