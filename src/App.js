@@ -7,7 +7,7 @@ import Weather from "./Weather"
 import Population from "./Population"
 import MyAccount from "./bank_app/MyAccount"
 import Todo from "./todo_app/Todo"
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom"
 import Login from "./Login"
 import Sample from "./class_component/Sample"
 
@@ -39,30 +39,30 @@ const App = () => {
         console.log("Intiate birth certification creation process", birthDateTime)
     }
 
-    // const CheckLoggedIn = (children) => {
-
-    //     return isLoggedIn ? children : <Login onLoginSuccess={onLoginSuccess}></Login>
-    // }
-
-
+    const CheckLoggedIn = ({ children }) => {
+        return isLoggedIn ? (children) : <Navigate to="/login"></Navigate>
+    }
 
 
     return (
         <BrowserRouter>
-            <Sample></Sample>
+
             <Routes>
                 <Route path="/login" element={<Login onLoginSuccess={onLoginSuccess} ></Login>}></Route>
-                <Route path="/" element={isLoggedIn &&
-                    <Welcome />
+                <Route path="/" element={
+                    <CheckLoggedIn>
+                        <Welcome />
+                    </CheckLoggedIn>
                 }></Route>
                 <Route path="/weather/report" element={<Weather></Weather>}></Route>
                 <Route path="/bank" element={
-                    <>
+                    <CheckLoggedIn>
                         <MyAccount></MyAccount>
                         <Todo></Todo>
-                    </>}></Route>
+                    </CheckLoggedIn>}></Route>
                 <Route path="/todo/list" element={<Todo></Todo>}></Route>
                 <Route path="/population" element={<Population></Population>}></Route>
+                <Route path="/sample" element={<Sample></Sample>}></Route>
             </Routes>
         </BrowserRouter>
     )

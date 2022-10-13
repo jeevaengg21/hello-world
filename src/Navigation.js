@@ -21,6 +21,9 @@ const Navigation = () => {
             <li>
                 <Link to="/population">Population</Link>
             </li>
+            <li>
+                <Link to="/sample">Sample class</Link>
+            </li>
         </ul>
     )
 }

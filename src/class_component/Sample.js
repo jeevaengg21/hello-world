@@ -1,4 +1,5 @@
 import React from "react";
+import Navigation from "../Navigation";
 
 class Sample extends React.Component {
 
@@ -24,7 +25,7 @@ class Sample extends React.Component {
         })
     }
 
-    /** Like a PostConstruct */
+    /** Like a PostConstruct*/
     /** Life cycle method */
     componentDidMount() {
         console.log("inside componentDidMount")
@@ -34,7 +35,10 @@ class Sample extends React.Component {
             location: "chennai"
         })
     }
-
+    /** Like Predestroy */
+    componentWillUnmount() {
+        console.log("Component is unmounting")
+    }
     /** Life cycle method */
     shouldComponentUpdate(nextProps, nextState) {
         console.log("current name ", this.state.name)
@@ -55,6 +59,7 @@ class Sample extends React.Component {
     render() {
         /** Mandatory */
         return (<>
+            <Navigation></Navigation>
             <h1> Sample is a class component</h1>
 
             <label>Username</label>
