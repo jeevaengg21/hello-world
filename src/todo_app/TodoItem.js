@@ -1,3 +1,5 @@
+import Button from "../Button";
+
 const TodoItem = ({ itemName, itemIndex, onDone }) => {
     const onClickDone = () => {
         onDone(itemIndex)
@@ -5,7 +7,7 @@ const TodoItem = ({ itemName, itemIndex, onDone }) => {
     return (
         <div>
             <label>{itemName}</label>
-            <button onClick={onClickDone} >Done</button>
+            <Button onClick={onClickDone} label="Done" />
         </div>
     )
 }

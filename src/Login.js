@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Button from "./Button"
+import TextField from "./TextField"
 
 const Login = ({ onLoginSuccess }) => {
     const [username, setUsername] = useState("")
@@ -19,18 +21,15 @@ const Login = ({ onLoginSuccess }) => {
     }
 
     return (
-        <>
-            <h3>Login Page</h3>
-            <div>
-                <label>Username</label>
-                <input type={"text"} value={username} onChange={(e) => { setUsername(e.target.value) }}></input>
+        <div className="card p-3 mt-4 bg-secondary text-white bg-opacity-50" style={{ width: "18rem" }}>
+
+            <div className="card-body">
+                < h3 className="card-title"> Login Page</h3 >
+                <TextField label={"Username"} value={username} onChange={(e) => { setUsername(e.target.value) }}></TextField>
+                <TextField label={"Password"} type={"password"} value={password} onChange={(e) => { setPassword(e.target.value) }}></TextField>
+                <Button label={"Login"} onClick={onLogin}></Button>
             </div>
-            <div>
-                <label>Password</label>
-                <input type={"text"} value={password} onChange={(e) => { setPassword(e.target.value) }}></input>
-            </div>
-            <button onClick={onLogin}>Login</button>
-        </>
+        </div >
     )
 }
 
