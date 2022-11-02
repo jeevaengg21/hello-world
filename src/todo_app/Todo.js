@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import TodoForm from "./TodoForm"
 import TodoItem from "./TodoItem"
 
@@ -22,6 +22,8 @@ const Todo = () => {
         console.log(currentItems)
         setTodoItems([...currentItems]);
     }
+
+
 
     return (<>
         <TodoForm onAdd={onAddTodo}></TodoForm>

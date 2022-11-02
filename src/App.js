@@ -7,6 +7,7 @@ import Weather from "./Weather"
 import Population from "./Population"
 import MyAccount from "./bank_app/MyAccount"
 import Todo from "./todo_app/Todo"
+import TodoV2 from "./todo_app_v2/Todo"
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom"
 import Login from "./Login"
 import Sample from "./class_component/Sample"
@@ -61,6 +62,7 @@ const App = () => {
                         <Todo></Todo>
                     </CheckLoggedIn>}></Route>
                 <Route path="/todo/list" element={<Todo></Todo>}></Route>
+                <Route path="/todo/list/v2" element={<TodoV2></TodoV2>}></Route>
                 <Route path="/population" element={<Population></Population>}></Route>
                 <Route path="/sample" element={<Sample></Sample>}></Route>
             </Routes>

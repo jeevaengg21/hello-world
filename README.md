@@ -68,3 +68,46 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+http://jeevabus.com/ticket/book
+http://jeevabus.com/ticket/cancel
+http://jeevabus.com/ticket/reschedule
+http://jeevabus.com/seats/view
+
+ticket_booking_service.war
+
+CRUD
+C POST http://prababus.com/ticket/book?busid=1234 http_body/payload {"name".. }  
+D DELETE http://prababus.com/ticket/cancel/{id}
+U PUT http://prababus.com/ticket/reschedule/{id} {ticketid, datetime}
+U PATCH http://prababus.com/ticket/reschedule/all
+R GET http://prababus.com/seats/view?ignoreBookedSeats=true
+
+CRUD
+
+GET http://prababus.com/tickets
+POST http://prababus.com/tickets
+PUT http://prababus.com/tickets/{id} (path param) or http://prababus.com/tickets?id=1
+DELETE http://prababus.com/tickets/{id} (path param) or http://prababus.com/tickets?id=1
+
+API:
+
+Web service
+REST API
+
+HTTP Method:
+
+GET - receive something from some one
+POST - Create something
+PUT - Single Update something
+PATCH - Bulk update
+DELETE - remove something
+
+/book
+
+content-type: application/xml, application/json (input format)
+accept: application/json, application/xml (response format)
+
+Redbus : /book content-type: application/json accept: application/json (http header)
+
+abhibus: /book accept: application/xml ()
